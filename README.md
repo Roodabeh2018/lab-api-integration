@@ -1,26 +1,23 @@
-# Two Brains, Zero Single Point of Failure
+# Two brains, zero single point of failure
 
-**Track:** Module 2 — API Integration  
-**When:** Week 3, Day 2  
-**Status:** Required
+**Track:** Module 2 — API integration · **When:** Week 3, Day 2 · **Status:** Required
 
-# Multi-Provider News Summarizer
+This repository contains everything you need for this lab.
 
-This project fetches technology news articles, summarizes them with OpenAI, and analyzes their sentiment with Cohere. If Cohere fails, the program uses OpenAI for sentiment analysis.
+## Files
 
-## Project files
+- [`instructions.md`](./instructions.md) — the lab instructions
+- [`rubric.md`](./rubric.md) — how your submission is graded; this is what the AI reviewer checks your PR against
 
-- `news_api.py` fetches articles from News API.
-- `llm_providers.py` connects to OpenAI and Cohere and includes fallback logic.
-- `summarizer.py` connects news fetching, summarization, and sentiment analysis.
-- `main.py` runs the workflow and displays the results.
-- `test_summarizer.py` tests the workflow without making real API calls.
-- `config.py` checks that the required API keys are available.
+## How to complete this lab
 
-## Setup
+1. **Fork** this repository.
+2. Do the work described in `instructions.md`, committing to your fork.
+3. Open a **pull request** back into this repository.
+4. You'll receive **AI feedback** on your PR based on `rubric.md`. Address any blocking feedback and push updates to the same PR.
 
-1. Create and activate the `bootcamp-env` environment.
-2. From the repository folder, enter the project folder:
+## Submission hygiene
 
-   ```powershell
-   cd news-summarizer
+- Keep this repository scoped to this lab only — no unrelated projects or personal files.
+- Use clear, descriptive filenames.
+- Remove secrets, API keys, and tokens before committing.
