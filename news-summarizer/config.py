@@ -2,19 +2,15 @@ import os
 
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 required_keys = [
     "OPENAI_API_KEY",
-    "COHERE_API_KEY",
+    "ANTHROPIC_API_KEY",
     "NEWS_API_KEY",
 ]
 
-missing_keys = [
-    key for key in required_keys
-    if not os.getenv(key)
-]
+missing_keys = [key for key in required_keys if not os.getenv(key)]
 
 if missing_keys:
     raise ValueError(
