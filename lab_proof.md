@@ -1,21 +1,28 @@
-## Execution trace
+# Lab proof: Two Brains, Zero Single Point of Failure
+
+## Current workflow
+
+News API provides the article. OpenAI writes the summary. Anthropic labels the sentiment. If Anthropic fails, OpenAI is used for sentiment instead.
+
+## Previous execution evidence
+
+The trace below was captured before the provider was changed from Cohere to Anthropic. It documents the earlier version and does not verify the updated Anthropic code.
+
 Command: `python main.py`
 
-The program successfully fetched three technology news articles, summarized them with OpenAI, and analyzed their sentiment with Cohere. The terminal displayed the title, source, summary, sentiment, provider, and URL for each article.
+The earlier run fetched technology news, summarized articles with OpenAI, and labeled sentiment with Cohere.
 
-Test command: `pytest test_summarizer.py -v`
+Earlier test result: `pytest test_summarizer.py -v` — 2 tests passed before the provider update.
 
-Result: 2 tests passed.
+Earlier output example:
 
-## Output record
-
-- Title: Dell releases new 16-inch laptop globally with 1,600-nit OLED display and up to 128 GB RAM - Notebookcheck
-- Source: Notebookcheck.net
-- Summary: The 20-core version of the RTX Spark N1X, featuring a 6,144-core GPU, is now available with 1 TB of storage.
-- Sentiment: Neutral
+- Title: Dell releases a new 16-inch laptop with an OLED display
 - Sentiment provider: Cohere
-- URL: https://www.notebookcheck.net/Dell-releases-new-16-inch-laptop-globally-with-1-600-nit-OLED-display-and-up-to-128-GB-RAM.1431301.0.html
 
-## Limitation or failure risk
+## Verify the updated version
 
-If an article has no text, the program skips it. If an API key is missing or a provider is unavailable, the workflow may stop or use its fallback provider.
+After adding valid keys to a private `.env` file and installing the packages, run `python main.py` and `pytest test_summarizer.py -v` from the `news-summarizer` folder. Replace the earlier evidence above with the new terminal trace and output record. Do not commit the real API keys.
+
+## Limitation
+
+The app skips articles without text. The old trace does not show the Anthropic run; a fresh run is needed to capture that evidence.

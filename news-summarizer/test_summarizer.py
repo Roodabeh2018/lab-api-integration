@@ -29,7 +29,7 @@ def test_process_articles_returns_summary_and_sentiment(monkeypatch):
         summarizer,
         "analyze_sentiment_with_fallback",
         lambda text: {
-            "provider": "Cohere",
+            "provider": "Anthropic",
             "sentiment": "Positive",
         },
     )
@@ -39,7 +39,7 @@ def test_process_articles_returns_summary_and_sentiment(monkeypatch):
     assert len(results) == 1
     assert results[0]["summary"] == "The company launched a product."
     assert results[0]["sentiment"] == "Positive"
-    assert results[0]["sentiment_provider"] == "Cohere"
+    assert results[0]["sentiment_provider"] == "Anthropic"
 
 
 def test_process_articles_skips_article_without_text(monkeypatch):
